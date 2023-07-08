@@ -14,6 +14,7 @@ export const Modal = ({setShowModal,resData}) => {
 console.log(resData)
     const handleClick = (e) => {
         e.preventDefault();
+        if(data.rating === "" || data.comment === "") return;
         const sum = resData.ratings.length+1
         console.log(sum)
         const avg =  (data.rating*resData.ratings.length + resData.averageRating)/sum
@@ -28,13 +29,15 @@ console.log(resData)
     return(
         <div className="flex justify-center items-center min-h-screen
         bg-gray-400/[.30] fixed top-0 left-0 right-0 z-20">
-            <form className="z-30 p-2 bg-gray-700">
-                <div>
+            <form className="z-30 p-2 bg-gray-700 items-center justify-center rounded-md shadow-md">
+                <div className="p-3 flex flex-col gap-3 items-center rounded-md shadow-md">
+                    <div className="flex justify-around text-white gap-3">
                     <img src="https://cdn-icons-png.flaticon.com/128/2997/2997911.png" 
-                    className="w-12 cursor-pointer" onClick = {() => setShowModal(false)}/>
+                    className="w-8 cursor-pointer" onClick = {() => setShowModal(false)}/>
                     <h3>Add Your Review</h3>
+                    </div>
                     <div>
-                        <h2>Ratings:</h2>
+                        <h2 className="text-center  text-white mb-3">Ratings:</h2>
                         <select name="ratings" id="ratings" onChange={(e) => setData({...data,rating:Number(e.target.value)})}>
                         <option value="Select">Select</option>    
                         <option value="1">1</option>
@@ -45,13 +48,13 @@ console.log(resData)
                         </select>
                    </div>
                    <div>
-                     <h3>Comment:</h3>
+                     <h3 className="text-center  text-white mb-3">Comment:</h3>
                      <input type="text"
                      value={data.comment}
                      onChange={(e) => setData({...data,comment:e.target.value})}/>
-                     <button onClick={(e) => handleClick(e)}
-                     className="p-3 bg-red-400 mr-2 rounded-md">Submit</button>
                    </div>
+                   <button onClick={(e) => handleClick(e)}
+                     className="p-3 bg-red-400 mr-2 rounded-md">Submit</button>
                 </div>
             </form>
         </div>

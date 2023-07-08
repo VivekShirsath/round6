@@ -22,7 +22,7 @@ export const Details = () => {
               <h3 className="text-xl font-extrabold">{resData?.name}</h3>
               <h3 className="flex  items-center text-center">{resData?.menu.map(({name}) => <p>{name}</p>)}</h3>
               <h3>{resData?.address}</h3>
-              <h3>{resData?.averageRating}</h3>
+              <h3>AverageRating : {resData?.averageRating}</h3>
             </div>
             </div>
             <div>
@@ -32,24 +32,24 @@ export const Details = () => {
             <hr>
             </hr>
             </div>
-            <div>
-                <h2 className="text-center text-2xl">Reviews</h2>
+            <div className="mt-4">
+                <h2 className="text-center text-2xl font-bold">Reviews</h2>
                 <div className="flex flex-col gap-2 p-2">
                 {
                     resData?.ratings.map(({rating,comment,revName,pp}) => {
                         return(
-                            <div key={pp} className="flex justify-around items-center">
-                                 <div className="w-[200px] self-start">
+                            <div key={pp} className="flex justify-around items-center rounded-lg">
+                                 <div className="w-[300px] self-start">
                                   <div>
-                                    <img src={pp} className="w-12"/>
+                                    <img src={pp} className="w-12 rounded-md"/>
                                     <p>{revName}</p>
                                     </div>
                                     <div>
                                         {comment}
                                     </div>
                                 </div>
-                                <div className="flex gap-1 items-center bg-green-500 w-fit">
-                                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" className="w-8"/>
+                                <div className="flex gap-1 items-center bg-green-500 w-fit rounded-md p-2">
+                                <img src="https://cdn-icons-png.flaticon.com/128/1828/1828970.png" className="w-4"/>
                                 <p>{rating}</p>
                                 </div>
                 

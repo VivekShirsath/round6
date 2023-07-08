@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 export const Card = ({restaurant}) => {
     return(
         <div className="flex flex-col gap-4 mt-3">
-            { <h3>Dishes By{restaurant.name}</h3>}
+            { <h3>Dishes By {restaurant.name}</h3>}
            <div className="flex gap-4 flex-wrap align-middle justify-between">
            {  restaurant.menu?.map(({name,imgSrc,price}) => {
                return(
